@@ -61,7 +61,7 @@ working_folder_names={working_folders.name};
 for session_idx=1:numel(parametersheets)
     if ismember(parametersheets(session_idx), original_folder_names) && (~ismember(parametersheets(session_idx), working_folder_names) ||  analysis_parameters.overwrite_all_raw_data)
         copyfile (strcat(analysis_parameters.folders.original_data, parametersheets{session_idx}, filesep), strcat(analysis_parameters.folders.extended_data, parametersheets{session_idx}, filesep));
-        monkeypsych_clean_data(analysis_parameters.folders.extended_data,str2double(parametersheets{session_idx}))
+        MPA_clean_data(analysis_parameters.folders.extended_data,str2double(parametersheets{session_idx}))
         import_parameters_from_xls_to_trial_task_per_date(strcat(analysis_parameters.folders.extended_data, parametersheets{session_idx}),parametersheets{session_idx});
     end
 end
